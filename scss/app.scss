@@ -1,0 +1,44 @@
+@import "bootstrap/bootstrap";
+@import "theme";
+@import "spiner";
+
+*{
+    transition: all 0.1s ease-in-out;
+}
+.color-line {
+    background-image: linear-gradient(to right, #34495e, #34495e 25%, #0072bf 25%, #0072bf 35%, #3498db 35%, #3498db 45%, #ffc100 45%, #ffc100 55%, #57b800 55%, #57b800 65%, #ff6c00 65%, #ff6c00 75%, #0072bf 75%, #0072bf 85%, #c0392b 85%, #c0392b 100%);
+    background-size: 100% 4px;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    display: block;
+    height: 4px;
+    margin: 0px;
+}
+
+
+.main:hover{
+    color: $brand-primary;
+    cursor: pointer;
+}
+
+button{
+    margin-top:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

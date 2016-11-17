@@ -1,0 +1,38 @@
+        <div class="middle-box">
+
+                    <h1>TeamWork</h1>
+                    <p>
+                        {{header.content}} <a [routerLink]="['/auth/signup']"><b>{{header.signup}}</b></a>
+                    </p>
+                    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                        
+                            <input 
+                                    type="email"
+                                    id="email"
+                                    class="form-control"
+                                    formControlName="email"
+                                    placeholder="Correo">
+                        </div>
+                        <div class="form-group">
+                            
+                            <input
+                                    type="password"
+                                    id="password"
+                                    class="form-control"
+                                    formControlName="password"
+                                    placeholder="Contraseña">
+                        </div>
+                        <button
+                                class="btn btn-primary"
+                                type="submit"
+                                [disabled]="!myForm.valid">{{formLabels.submit}}</button> 
+                    </form>
+
+        </div>
+
+
+
+
+
+

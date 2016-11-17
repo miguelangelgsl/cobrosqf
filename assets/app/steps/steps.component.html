@@ -1,0 +1,18 @@
+<div class="col-md-6">
+    <article class="panel panel-default">
+        <div class="panel-body">
+            {{ message.title }}
+        </div>
+        <footer class="panel-footer">
+            <div class="row">   
+                <div class="col-md-6">
+                    {{ message.username }}
+                </div>
+                <div class="col-md-6" *ngIf="belongsToUser()">
+                    <a role="button" (click)="onEdit()">Edit</a>
+                    <a role="button" (click)="onDelete()">Delete</a>
+                </div>
+              </div>  
+        </footer>
+    </article>
+</div>    

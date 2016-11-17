@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="385.366px" height="362.602px" viewBox="0 0 385.366 362.602" enable-background="new 0 0 385.366 362.602"
+	 xml:space="preserve">
+<g id="circle">
+	<path fill="none" stroke="#000000" stroke-miterlimit="10" d="M192.372,357.594C89.015,357.594,5.38,278.686,5.38,181.171
+		 M379.364,181.171c0-97.515-83.635-176.423-186.992-176.423 M192.372,4.748C89.015,4.748,5.38,83.656,5.38,181.171
+		 M192.372,357.594c103.357,0,186.992-78.908,186.992-176.423"/>
+</g>
+<g id="arcs">
+	<path id="lb" fill="none" stroke="#000000" stroke-miterlimit="10" d="M5.38,181.171c0,97.515,83.635,176.423,186.991,176.423"/>
+	<path id="rt" fill="none" stroke="#000000" stroke-miterlimit="10" d="M379.364,181.171c0-97.515-83.635-176.423-186.992-176.423"
+		/>
+	<path id="lt" fill="none" stroke="#000000" stroke-miterlimit="10" d="M5.38,181.171C5.38,83.656,89.015,4.748,192.372,4.748"/>
+	<path id="rb" fill="none" stroke="#000000" stroke-miterlimit="10" d="M379.364,181.171c0,97.515-83.635,176.423-186.992,176.423"
+		/>
+</g>
+</svg>

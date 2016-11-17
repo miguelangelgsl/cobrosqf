@@ -1,0 +1,16 @@
+<div class="col-md-4">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+            <label for="content">Add Checklist</label>
+            <input
+                    type="text"
+                    id="title"
+                    class="form-control"
+                    [ngModel]="message?.title"
+                    name="title"
+                    required>
+        </div>
+        <button type="button" class="btn btn-danger" (click)="onClear(f)">Clear</button>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+</div>

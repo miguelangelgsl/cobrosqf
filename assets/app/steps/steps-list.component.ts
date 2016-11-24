@@ -6,11 +6,13 @@ import { StepsService } from "./steps.service";
 @Component({
     selector: 'app-steps-list',
     template: `
-            <app-steps
+    <ul class="list-group">
+        <app-steps
                    [message]="message"
                     *ngFor="let message of messages"></app-steps>
+    </ul>   
         
-    `
+    ` 
 })
 export class StepsListComponent implements OnInit {
     messages: Steps[];

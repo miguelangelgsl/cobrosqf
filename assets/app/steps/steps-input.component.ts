@@ -11,6 +11,7 @@ import { Steps } from "./steps.model";
 export class StepsInputComponent implements OnInit {
     message: Steps;
     @Input() idProcess:string;
+    result:string;
 
     constructor(private dataService: StepsService) {}
 
@@ -22,7 +23,7 @@ export class StepsInputComponent implements OnInit {
             this.message.title = form.value.title;
             this.dataService.updateData(this.message)
                 .subscribe(
-                    result => console.log(result)
+                    result => result => this.result=result
                 );
             this.message = null;
         } else {
@@ -30,8 +31,7 @@ export class StepsInputComponent implements OnInit {
             const message = new Steps(form.value.title, ' ',this.idProcess); 
             this.dataService.addData(message)
                 .subscribe(
-                    data => console.log(data),
-                    // error => console.error(error)
+                    data => result => this.result=result,
                 );
         }
         form.resetForm();

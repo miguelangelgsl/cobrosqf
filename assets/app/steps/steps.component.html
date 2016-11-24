@@ -1,18 +1,35 @@
-<div class="col-md-6">
-    <article class="panel panel-default">
-        <div class="panel-body">
-            {{ message.title }}
-        </div>
-        <footer class="panel-footer">
-            <div class="row">   
-                <div class="col-md-6">
-                    {{ message.username }}
+       
+       <li class="list-group-item" style="font-size:20px;">
+           
+                <span class="pull-left" style="
+                    display: inline-block;
+                    min-width: 10px;
+                    padding: 8px 12px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    color: #fff;
+                    line-height: 1;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    text-align: center;
+                    background-color: #325D88;
+                    border-radius: 10px;
+                ">1</span>
+           
+                <div style="margin-left:40px; font-size:18px;">
+                    {{ message.title }} <small style="color:#bbb;">@{{ message.username }}</small>
+
+                        <a *ngIf="belongsToUser()" style="margin-left:5px; font-size:22px;" class="pull-right" role="button" (click)="onEdit()">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a *ngIf="belongsToUser()" style="font-size:22px;" class="pull-right" role="button" (click)="onDelete()">
+                            <i class="fa fa-times" aria-hidden="true"></i></a>
                 </div>
-                <div class="col-md-6" *ngIf="belongsToUser()">
-                    <a role="button" (click)="onEdit()">Edit</a>
-                    <a role="button" (click)="onDelete()">Delete</a>
-                </div>
-              </div>  
-        </footer>
-    </article>
-</div>    
+
+
+            
+        </li>
+       
+
+ 
+
+ <!-- *ngIf="belongsToUser()" -->

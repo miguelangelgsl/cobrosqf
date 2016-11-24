@@ -6,25 +6,22 @@ var User = require('../models/user');
 var Steps = require('../models/steps');
 var Process = require('../models/process');
 
-router.get('/:id?', function (req, res, next) {
-        //req.body.processId
-        //console.log(req.params.id);
+router.get('/:id?', (req, res, next) => {
 
     Steps.find({process:req.params.id})
         .populate('user', 'firstName')
-        .exec(function (err, data) {
-           // console.log(data);
-            if (err) {
-                return res.status(500).json({
-                    title: 'An error occurred',
-                    error: err
-                });
-            }
+        .exec().then((data) => {
             res.status(200).json({
                 message: 'Success',
                 obj: data
             });
+        },(err) => {
+               return res.status(500).json({
+                    title: 'An error occurred',
+                    error: err
+                });
         });
+
 });
 
 router.use('/', function (req, res, next) {

@@ -10,7 +10,7 @@ import { Process } from "./process.model";
 })
 export class ProcessInputComponent implements OnInit {
     message: Process;
-
+    result:string;
     constructor(private dataService: ProcessService) {}
 
     onSubmit(form: NgForm) {
@@ -19,7 +19,7 @@ export class ProcessInputComponent implements OnInit {
             this.message.title = form.value.title;
             this.dataService.updateData(this.message)
                 .subscribe(
-                    result => console.log(result)
+                    result => this.result=result,
                 );
             this.message = null;
         } else {
@@ -27,7 +27,7 @@ export class ProcessInputComponent implements OnInit {
             const message = new Process(form.value.title, ' ');
             this.dataService.addData(message)
                 .subscribe(
-                    data => console.log(data),
+                    data => result => this.result=result,
                     // error => console.error(error)
                 );
         }

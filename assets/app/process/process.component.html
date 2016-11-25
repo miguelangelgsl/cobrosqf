@@ -8,9 +8,9 @@
                 <div class="col-md-6">
                     {{ message.username }}
                 </div>
-                <div class="col-md-6" *ngIf="belongsToUser()">
-                    <a role="button" (click)="onEdit()">Edit</a>
-                    <a role="button" (click)="onDelete()">Delete</a>
+                <div class="col-md-6" >
+                    <a *ngIf="belongsToUser()" role="button" (click)="onEdit()">Edit</a>
+                    <a *ngIf="belongsToUser()" role="button" (click)="onDelete()">Delete</a>
 
                      <a [routerLink]="['/steps', message.processId]">
                       <i class="fa fa-search" aria-hidden="true"></i>

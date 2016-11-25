@@ -51,8 +51,15 @@ export class SigninComponent {
         this.authService.signin(user)
             .subscribe(
                 data => {
+
+                    var admin='false';
+                    if(data.admin==true) admin='true';
+
                     localStorage.setItem('token', data.token);
                     localStorage.setItem('userId', data.userId);
+                    localStorage.setItem('admin', admin);
+                    localStorage.setItem('name', data.name);
+                    localStorage.setItem('email', data.email);
                     this.router.navigateByUrl('/');
                 },
                 error => console.error(error)

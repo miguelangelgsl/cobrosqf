@@ -40,4 +40,8 @@ export class AuthService {
     isLoggedIn() {
         return localStorage.getItem('token') !== null;
     }
+
+    isAdmin() {
+        return localStorage.getItem('admin');
+    }
 }

@@ -14,10 +14,12 @@ import { AuthService } from "./auth/auth.service";
 import { ErrorComponent } from "./errors/error.component";
 import { ErrorService } from "./errors/error.service";
 import { AuthGuard } from './auth/auth-guard';
+import { AdminGuard } from './auth/admin-guard';
 
 //Layout
 import { NavBarComponent } from './navbar.component';
 import { E404Component } from './E404.component';
+import { NotAuthorizedComponent } from './not_authorized.component';
 
 @NgModule({
     declarations: [
@@ -26,14 +28,15 @@ import { E404Component } from './E404.component';
         ErrorComponent,
         HomeComponent,
         NavBarComponent,
-        E404Component
+        E404Component,
+        NotAuthorizedComponent
     ],
     imports: [
         BrowserModule,
         routing,
         HttpModule
     ],
-    providers: [AuthService, ErrorService,AuthGuard],
+    providers: [AuthService, ErrorService,AuthGuard,AdminGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {

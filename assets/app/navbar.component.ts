@@ -9,12 +9,22 @@ import { AuthService } from "./auth/auth.service";
 })
 export class NavBarComponent {
  isloading:boolean=false;
-constructor(private authService: AuthService, private router: Router) {}
+ name:string='';
+ email:string='';
+constructor(private authService: AuthService, private router: Router) {
+
+     this.name=localStorage.getItem('name');
+        this.email=localStorage.getItem('email');
+}
 
     onLogout() {
         this.authService.logout();
         this.router.navigate(['/auth', 'signin']);
     }
 
+    isAdmin() {
+
+        return JSON.parse(localStorage.getItem('admin'));
+    }
 
 }

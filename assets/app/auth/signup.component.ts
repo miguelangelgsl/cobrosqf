@@ -34,10 +34,8 @@ export class SignupComponent implements OnInit {
     myForm: FormGroup;
     
     header={
-            content: `Bienvenido a Agents, puede crear una solicitud de acceso 
-            llenando los datos en el formulario al ser aprobado será notificada por correo.
-            Si ya cuentas con tu acceso puede`,
-            signin:'Iniciar Sesión'
+            content: `Crear acceso llenando los datos en el formulario.`,
+            signin:''
     };
 
     formLabels={

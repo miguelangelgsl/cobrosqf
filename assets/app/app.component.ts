@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { MessageService } from "./messages/message.service";
 
 @Component({
     selector: 'my-app',
@@ -9,7 +8,13 @@ import { MessageService } from "./messages/message.service";
             <app-error></app-error>
     `
 })
-export class AppComponent {
+export class AppComponent{
+
+
+
+ 
+
+  
 
 
 }

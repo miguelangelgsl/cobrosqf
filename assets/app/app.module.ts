@@ -7,7 +7,7 @@ import { routing } from "./app.routing";
 //Main Components
 import { AppComponent } from "./app.component";
 import { AuthenticationComponent } from "./auth/authentication.component";
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/home.component';
 
 //Service Security and Guard
 import { AuthService } from "./auth/auth.service";
@@ -17,9 +17,10 @@ import { AuthGuard } from './auth/auth-guard';
 import { AdminGuard } from './auth/admin-guard';
 
 //Layout
-import { NavBarComponent } from './navbar.component';
-import { E404Component } from './E404.component';
-import { NotAuthorizedComponent } from './not_authorized.component';
+import { NavBarComponent } from './layout/navbar.component';
+import { E404Component } from './errors/E404.component';
+import { NotAuthorizedComponent } from './errors/not_authorized.component';
+import { ExpiredComponent } from './errors/expired.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { NotAuthorizedComponent } from './not_authorized.component';
         HomeComponent,
         NavBarComponent,
         E404Component,
-        NotAuthorizedComponent
+        NotAuthorizedComponent,
+        ExpiredComponent
     ],
     imports: [
         BrowserModule,

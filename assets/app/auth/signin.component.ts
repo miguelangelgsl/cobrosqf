@@ -34,8 +34,8 @@ export class SigninComponent {
     myForm: FormGroup;
 
     header={
-            content: `Bienvenido a Agents inicie sesión con su correo y contraseña si aun no cuenta con acceso puede `,
-            signup:'solicitar uno'
+            content: `Bienvenido a Agents inicie sesión con su correo y contraseña. `,
+            signup:''
     };
 
     formLabels={

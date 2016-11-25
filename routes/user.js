@@ -5,7 +5,7 @@ var jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
 
-router.post('/', function (req, res, next) {
+router.post('/', function (req, res, next) { 
     var user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -57,6 +57,22 @@ router.post('/signin', function(req, res, next) {
             name: user.firstName
         }); 
     });
+});
+
+router.get('/expired', function (req, res, next) {
+    jwt.verify(req.query.token, 'secret', function (err, decoded) {
+        if (err) {
+            return res.status(201).json({
+                title: 'Not Authenticated',
+                flag: false
+            });
+        }else{
+            return res.status(201).json({
+                title: 'Authenticated',
+                flag: true
+            });
+        }
+    })
 });
 
 module.exports = router;

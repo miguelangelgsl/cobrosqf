@@ -3,7 +3,7 @@ import { Http, Headers, Response } from "@angular/http";
 import 'rxjs/Rx';
 import { Observable } from "rxjs";
 
-import { User } from "./user.model";
+import { User } from "./user.model"; 
 import { ErrorService } from "../errors/error.service";
 
 @Injectable()
@@ -32,6 +32,7 @@ export class AuthService {
                 return Observable.throw(error.json());
             });
     }
+    
 
     logout() {
         localStorage.clear();
@@ -44,4 +45,15 @@ export class AuthService {
     isAdmin() {
         return localStorage.getItem('admin');
     }
+
+    isExpired(){
+   
+        const token = localStorage.getItem('token')
+            ? '?token=' + localStorage.getItem('token')
+            : '';
+         
+      return this.http.get(this.url+'user/expired'+ token).map(res => res.json());
+    }
+
+
 }

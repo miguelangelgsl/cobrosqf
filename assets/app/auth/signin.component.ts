@@ -64,7 +64,7 @@ export class SigninComponent {
                     this.router.navigateByUrl('/');
                     this.isLoading=false;
                 },
-                error => console.error(error)
+                error => {console.error(error); this.isLoading=false;}
             );
         this.myForm.reset();
     }

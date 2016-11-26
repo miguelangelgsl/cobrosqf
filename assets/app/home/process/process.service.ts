@@ -3,19 +3,19 @@ import { Injectable, EventEmitter } from "@angular/core";
 import 'rxjs/Rx';
 import { Observable } from "rxjs";
 
-import { Steps } from "./steps.model";
-import { ErrorService } from "../errors/error.service";
+import { Process } from "./process.model";
+import { ErrorService } from "../../errors/error.service";
 
-@Injectable()
-export class StepsService {
-    private dataArray: Steps[] = [];
-    messageIsEdit = new EventEmitter<Steps>();
-    public url:string='http://localhost:3000/stepss/';
+@Injectable() 
+export class ProcessService {
+    private dataArray: Process[] = [];
+    messageIsEdit = new EventEmitter<Process>();
+    public url:string='http://localhost:3000/process/';
     
     constructor(private http: Http, private errorService: ErrorService) {
     }
 
-    addData(message: Steps) {
+    addData(message: Process) {
         const body = JSON.stringify(message);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token')
@@ -24,17 +24,13 @@ export class StepsService {
         return this.http.post(this.url + token, body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
-        
-                const step = new Steps(
+                const message = new Process(
                     result.obj.title,
                     result.obj.user.firstName,
-                    result.obj.process._id,
+                    result.obj._id,
                     result.obj.user._id);
-
-                this.dataArray.push(step);
-
-                return step;
-     
+                this.dataArray.push(message);
+                return message;
             })
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -42,21 +38,16 @@ export class StepsService {
             });
     }
 
-    getData(id:string) { //(title: ,username: , processId: , userId?: )
-
-
-        /////////////////////////////////////////////
-        const body = id;
-        //console.log(body);
-        return this.http.get(this.url+body)
+    getData() {
+        return this.http.get(this.url)
             .map((response: Response) => {
                 const messages = response.json().obj;
-                let transformedMessages: Steps[] = [];
+                let transformedMessages: Process[] = [];
                 for (let message of messages) {
-                    transformedMessages.push(new Steps(
+                    transformedMessages.push(new Process(
                         message.title,
                         message.user.firstName,
-                        message.process,
+                        message._id,
                         message.user._id)
                     );
                 }
@@ -69,11 +60,11 @@ export class StepsService {
             });
     }
 
-    editData(message: Steps) {
+    editData(message: Process) {
         this.messageIsEdit.emit(message);
     }
 
-    updateData(message: Steps) {
+    updateData(message: Process) {
        
         const body = JSON.stringify(message);
         const headers = new Headers({'Content-Type': 'application/json'});
@@ -81,7 +72,7 @@ export class StepsService {
             ? '?token=' + localStorage.getItem('token')
             : '';
 
-        return this.http.patch(this.url + message.stepsId + token, body, {headers: headers})
+        return this.http.patch(this.url + message.processId + token, body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                this.errorService.handleError(error.json());
@@ -89,12 +80,12 @@ export class StepsService {
             });
     }
 
-    deleteData(message: Steps) {
+    deleteData(message: Process) {
         this.dataArray.splice(this.dataArray.indexOf(message), 1);
         const token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.delete(this.url + message.stepsId + token)
+        return this.http.delete(this.url + message.processId + token)
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());

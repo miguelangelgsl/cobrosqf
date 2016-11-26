@@ -11,17 +11,21 @@ import { HomeComponent } from './home/home.component';
 
 //Service Security and Guard
 import { AuthService } from "./auth/auth.service";
-import { ErrorComponent } from "./errors/error.component";
-import { ErrorService } from "./errors/error.service";
 import { AuthGuard } from './auth/auth-guard';
 import { AdminGuard } from './auth/admin-guard';
 
+
 //Layout
 import { NavBarComponent } from './layout/navbar.component';
+
+//Error Pages
 import { E404Component } from './errors/E404.component';
 import { NotAuthorizedComponent } from './errors/not_authorized.component';
 import { ExpiredComponent } from './errors/expired.component';
+import { ErrorComponent } from "./errors/error.component";
+import { ErrorService } from "./errors/error.service";
 
+ 
 @NgModule({
     declarations: [
         AppComponent,

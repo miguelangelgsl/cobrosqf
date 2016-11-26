@@ -1,11 +1,11 @@
 import { Routes, RouterModule } from "@angular/router";
 import { AuthGuard } from '../auth/auth-guard';
 import { AdminGuard } from '../auth/admin-guard'; 
-import { MessagesComponent } from "../messages/messages.component";
-import { ProcessesComponent } from "../process/processes.component";
-import { StepssComponent } from "../steps/stepss.component";
+import { MessagesComponent } from "./messages/messages.component";
+import { ProcessesComponent } from "./process/processes.component";
+import { StepssComponent } from "./steps/stepss.component";
 import { StartComponent } from "./start.component";
-import { SignupComponent } from "../auth/signup.component";
+import { SignupComponent } from "../admin/signup.component";
 
 
 const HOME_ROUTES: Routes = [

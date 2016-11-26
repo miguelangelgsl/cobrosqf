@@ -1,6 +1,8 @@
 <div class="middle-box">
-
-                    <h1>TeamWork</h1>
+    <h2>TeamWork</h2>
+    <h2><spinner [visible]="isLoading"></spinner></h2>
+    <div *ngIf="!isLoading">
+                    
                     <p>
                         {{header.content}}
                     </p>
@@ -47,5 +49,5 @@
                 type="submit"
                 [disabled]="!myForm.valid">{{formLabels.submit}}</button>
     </form>
-
-   </div>
+    </div>
+</div>

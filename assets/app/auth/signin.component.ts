@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-
 import { User } from "./user.model";
 import { AuthService } from "./auth.service";
 
@@ -32,6 +31,7 @@ import { AuthService } from "./auth.service";
 })
 export class SigninComponent {
     myForm: FormGroup;
+    isLoading=false;
 
     header={
             content: `Bienvenido a Agents inicie sesión con su correo y contraseña. `,
@@ -47,9 +47,10 @@ export class SigninComponent {
     constructor(private authService: AuthService, private router: Router) {}
 
     onSubmit() {
+        this.isLoading=true;
         const user = new User(this.myForm.value.email, this.myForm.value.password);
         this.authService.signin(user)
-            .subscribe(
+            .subscribe( 
                 data => {
 
                     var admin='false';
@@ -61,6 +62,7 @@ export class SigninComponent {
                     localStorage.setItem('name', data.name);
                     localStorage.setItem('email', data.email);
                     this.router.navigateByUrl('/');
+                    this.isLoading=false;
                 },
                 error => console.error(error)
             );

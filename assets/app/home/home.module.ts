@@ -8,12 +8,13 @@ import { MessageModule } from "../messages/message.module";
 import { ProcessModule } from "../process/process.module";
 import { StepsModule } from "../steps/steps.module";
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { SpinnerComponent } from '../layout/spinner.component';
 
 @NgModule({
     declarations: [
         StartComponent,
-        SignupComponent
+        SignupComponent,
+        SpinnerComponent
     ],
     imports: [
         CommonModule,

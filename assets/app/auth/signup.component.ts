@@ -32,7 +32,8 @@ import { User } from "./user.model";
 })
 export class SignupComponent implements OnInit {
     myForm: FormGroup;
-    
+    isLoading=false;
+
     header={
             content: `Crear acceso llenando los datos en el formulario.`,
             signin:''
@@ -49,6 +50,7 @@ export class SignupComponent implements OnInit {
     constructor(private authService: AuthService) {}
 
     onSubmit() {
+        this.isLoading=true;
         const user = new User(
             this.myForm.value.email,
             this.myForm.value.password,
@@ -57,7 +59,7 @@ export class SignupComponent implements OnInit {
         );
         this.authService.signup(user)
             .subscribe(
-                data => console.log(data),
+                data => {console.log(data); this.isLoading=false;},
                 error => console.error(error)
             );
         this.myForm.reset();

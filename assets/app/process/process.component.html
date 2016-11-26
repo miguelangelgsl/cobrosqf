@@ -9,12 +9,18 @@
                     {{ message.username }}
                 </div>
                 <div class="col-md-6" >
-                    <a *ngIf="belongsToUser()" role="button" (click)="onEdit()">Edit</a>
-                    <a *ngIf="belongsToUser()" role="button" (click)="onDelete()">Delete</a>
 
-                     <a [routerLink]="['/steps', message.processId]">
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                     </a>
+                        <a [routerLink]="['/steps', message.processId]" style="margin-left:5px; font-size:22px;">
+                        <i class="fa fa-search pull-right" aria-hidden="true" title="Examinar"></i></a>
+
+                        <a *ngIf="belongsToUser()" style="margin-left:5px; font-size:22px;" class="pull-right" role="button" (click)="onEdit()">
+                            <i class="fa fa-pencil-square-o pull-right" aria-hidden="true" title="Editar"></i></a>
+
+                        <a *ngIf="belongsToUser()" style="margin-left:5px; font-size:22px;" class="pull-right" role="button" (click)="onDelete()">
+                            <i class="fa fa-times pull-right" aria-hidden="true" title="Eliminar"></i></a>
+
+
+
                      
                 </div>
               </div>  

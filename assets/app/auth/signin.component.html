@@ -1,6 +1,23 @@
         <div class="middle-box">
+            <h2>
+            <div *ngIf="isLoading" class="centering text-center text-primary" 
+                        style="  min-height: 100%; 
+                                 min-height: 100vh; 
+                                 display: flex;
+                                 align-items: center; ">
 
-                    <h1>TeamWork</h1>
+                        <div class="sk-folding-cube">
+                        <div class="sk-cube1 sk-cube"></div>
+                        <div class="sk-cube2 sk-cube"></div>
+                        <div class="sk-cube4 sk-cube"></div>
+                        <div class="sk-cube3 sk-cube"></div>
+                        </div> 
+                  
+                    
+                </div>    
+            </h2>
+            <div *ngIf="!isLoading">
+                <h1>TeamWork</h1>
                     <p>
                         {{header.content}}
                     </p>
@@ -29,7 +46,8 @@
                                 [disabled]="!myForm.valid">{{formLabels.submit}}</button> 
                     </form>
 
-        </div>
+            </div>
+</div>
 
 
 

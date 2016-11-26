@@ -9,7 +9,7 @@ import { ErrorService } from "../errors/error.service";
 @Injectable()
 export class AuthService {
     constructor(private http: Http, private errorService: ErrorService) {}
-    public url:string='http://localhost:3000/';
+    public url:string='localhost:3000/';
 
     signup(user: User) {
         const body = JSON.stringify(user);

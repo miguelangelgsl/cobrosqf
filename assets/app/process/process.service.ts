@@ -10,7 +10,7 @@ import { ErrorService } from "../errors/error.service";
 export class ProcessService {
     private dataArray: Process[] = [];
     messageIsEdit = new EventEmitter<Process>();
-    public url:string='localhost:3000/process/';
+    public url:string='http://localhost:3000/process/';
     
     constructor(private http: Http, private errorService: ErrorService) {
     }

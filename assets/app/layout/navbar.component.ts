@@ -19,7 +19,7 @@ constructor(private authService: AuthService, private router: Router) {
 
     onLogout() {
         this.authService.logout();
-        this.router.navigate(['/auth', 'signin']);
+        this.router.navigate(['/auth']);
     }
 
     isAdmin() {

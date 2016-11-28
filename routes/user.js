@@ -11,7 +11,7 @@ router.post('/', function (req, res, next) {
         lastName: req.body.lastName,
         password: bcrypt.hashSync(req.body.password, 10),
         email: req.body.email,
-        admin: true
+        admin: false
     });
     user.save(function(err, result) {
         if (err) {
@@ -25,6 +25,36 @@ router.post('/', function (req, res, next) {
             obj: result
         });
     });
+});
+
+router.get('/init', function (req, res, next) { 
+
+ var user = new User({
+        firstName: 'Admin',
+        lastName: '-',
+        password: bcrypt.hashSync(req.query.password, 10),
+        email: req.query.mail,
+        admin: true
+    });
+    user.save(function(err, result) {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occurred',
+                flag: false,
+                obj: err
+            });
+        }
+        res.status(201).json({
+                title: 'Se ha creado usuario Administrador',
+                flag:true,
+                obj: result.email
+        });
+    });
+
+
+
+
+
 });
 
 router.post('/signin', function(req, res, next) {

@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('./db/mongoose');
-
+  
 
 /* Rotas de los diferentes conponentes */
 var appRoutes = require('./routes/app');

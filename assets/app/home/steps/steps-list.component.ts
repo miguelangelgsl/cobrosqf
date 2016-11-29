@@ -8,7 +8,7 @@ import { StepsService } from "./steps.service";
     template: `
     <ul class="list-group">
         <app-steps
-                   [message]="message"
+                   [data]="message"
                     *ngFor="let message of messages,let i=index"
                     [index]="i+1"></app-steps>
     </ul>   
@@ -25,7 +25,6 @@ export class StepsListComponent implements OnInit {
             .subscribe(
                 (messages: Steps[]) => {
                     this.messages = messages;
-                    //console.log(messages);
                 }
             );
     }

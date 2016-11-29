@@ -8,6 +8,9 @@ import { StepsListComponent } from "./steps-list.component";
 import { StepsInputComponent } from "./steps-input.component";
 import { StepsService } from "./steps.service";
 
+//Notificactions
+import {SimpleNotificationsModule} from 'angular2-notifications';
+
 @NgModule({
     declarations: [
         StepsComponent,
@@ -17,7 +20,8 @@ import { StepsService } from "./steps.service";
     ],
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        SimpleNotificationsModule
     ],
     providers: [StepsService]
 }) 

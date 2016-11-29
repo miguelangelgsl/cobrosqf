@@ -20,7 +20,7 @@ export class StepsInputComponent implements OnInit {
 
       if (this.message) {
             // Edit
-            console.log(this.message);
+            //console.log(this.message);
             this.message.title = form.value.title;
             this.dataService.updateData(this.message)
                 .subscribe(

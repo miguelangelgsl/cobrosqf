@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     template: `
        <div class="middle-box">
                     <h1>{{title}}</h1>
-                    <p>Es necesario que <a [routerLink]="['/auth/signin']"><b>inicie sesión</b></a> nuevamente  </p>
+                    <p>Es necesario que <a [routerLink]="['/auth/']"><b>inicie sesión</b></a> nuevamente  </p>
         </div>
     `,
     styles:[

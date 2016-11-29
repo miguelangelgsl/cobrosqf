@@ -10,6 +10,7 @@ import { StepsModule } from "./steps/steps.module";
 import { ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from '../layout/spinner.component';
 
+
 @NgModule({
     declarations: [
         StartComponent,

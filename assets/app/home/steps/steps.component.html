@@ -17,7 +17,7 @@
                 ">{{index}}</span>
            
                 <div style="margin-left:40px; font-size:15px;">
-                    {{ message.title }} <small style="color:#bbb;">@{{ message.username }}</small>
+                    {{ data.title }} <small style="color:#bbb;">@{{ data.username }}</small>
                 
 
                         <a *ngIf="belongsToUser()" style="margin-left:5px; font-size:22px;" class="pull-right" role="button" (click)="onEdit()">
@@ -29,7 +29,8 @@
 
             
         </li>
-       
+
+        <simple-notifications [options]="options"></simple-notifications>
 
  
 

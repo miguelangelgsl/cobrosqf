@@ -14,10 +14,11 @@
                     text-align: center;
                     background-color: #325D88;
                     border-radius: 10px;
-                ">1</span>
+                ">{{index}}</span>
            
-                <div style="margin-left:40px; font-size:18px;">
+                <div style="margin-left:40px; font-size:15px;">
                     {{ message.title }} <small style="color:#bbb;">@{{ message.username }}</small>
+                
 
                         <a *ngIf="belongsToUser()" style="margin-left:5px; font-size:22px;" class="pull-right" role="button" (click)="onEdit()">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

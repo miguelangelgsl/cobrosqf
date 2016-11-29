@@ -20,7 +20,7 @@ schema.post('remove', function (step) {
     });
 
     User.findById(step.user, function (err, user) {
-        user.steps.pull(steps);
+        user.steps.pull(step);
         user.save();
     });
 

@@ -27,10 +27,12 @@ export class ProcessComponent {
     constructor(private messageService: ProcessService) {}
 
     onEdit() {
+      //  console.log(this.message);
         this.messageService.editData(this.message);
     }
 
     onDelete() {
+        
         this.messageService.deleteData(this.message)
             .subscribe(
                 result => console.log(result)

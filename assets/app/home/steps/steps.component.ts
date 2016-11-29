@@ -23,12 +23,14 @@ import { StepsService } from "./steps.service";
 })
 export class StepsComponent {
     @Input() message: Steps;
+    @Input() index: number;
 
 
     constructor(private messageService: StepsService) {
     }
 
     onEdit() {
+       console.log( this.message);
         this.messageService.editData(this.message);
     }
 

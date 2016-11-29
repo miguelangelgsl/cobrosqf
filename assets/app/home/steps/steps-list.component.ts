@@ -9,7 +9,8 @@ import { StepsService } from "./steps.service";
     <ul class="list-group">
         <app-steps
                    [message]="message"
-                    *ngFor="let message of messages"></app-steps>
+                    *ngFor="let message of messages,let i=index"
+                    [index]="i+1"></app-steps>
     </ul>   
         
     ` 

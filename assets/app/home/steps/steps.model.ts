@@ -6,7 +6,9 @@ export class Steps {
     userId?: string;
     username: string;
 
-    constructor(title: string,username: string, processId: string, userId?: string) {
+    constructor(title: string,username: string, processId: string, userId?: string,stepsId?:string) {
+       
+        this.stepsId = stepsId;
         this.title = title;
         this.processId = processId;
         this.userId = userId;

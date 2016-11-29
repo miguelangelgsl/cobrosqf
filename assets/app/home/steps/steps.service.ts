@@ -16,6 +16,7 @@ export class StepsService {
     }
 
     addData(message: Steps) {
+      
         const body = JSON.stringify(message);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token')
@@ -29,7 +30,8 @@ export class StepsService {
                     result.obj.title,
                     result.obj.user.firstName,
                     result.obj.process._id,
-                    result.obj.user._id);
+                    result.obj.user._id,
+                    result.obj._id);
 
                 this.dataArray.push(step);
 
@@ -57,7 +59,8 @@ export class StepsService {
                         message.title,
                         message.user.firstName,
                         message.process,
-                        message.user._id)
+                        message.user._id,
+                        message._id)
                     );
                 }
                 this.dataArray = transformedMessages;
@@ -70,11 +73,13 @@ export class StepsService {
     }
 
     editData(message: Steps) {
+        
         this.messageIsEdit.emit(message);
+       
     }
 
     updateData(message: Steps) {
-       
+      // console.log(message);
         const body = JSON.stringify(message);
         const headers = new Headers({'Content-Type': 'application/json'});
         const token = localStorage.getItem('token')

@@ -11,6 +11,7 @@ router.get('/:id?', (req, res, next) => {
     Steps.find({process:req.params.id})
         .populate('user', 'firstName')
         .exec().then((data) => {
+          //  console.log(data);
             res.status(200).json({
                 message: 'Success',
                 obj: data
@@ -87,6 +88,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.patch('/:id', function (req, res, next) {
+    console.log('Editando....');
     var decoded = jwt.decode(req.query.token);
     Steps.findById(req.params.id, function (err, steps) {
         if (err) {
@@ -125,6 +127,7 @@ router.patch('/:id', function (req, res, next) {
 
 router.delete('/:id', function (req, res, next) {
     var decoded = jwt.decode(req.query.token);
+    
     Steps.findById(req.params.id, function (err, steps) {
         if (err) {
             return res.status(500).json({
@@ -146,6 +149,7 @@ router.delete('/:id', function (req, res, next) {
         }
         steps.remove(function (err, result) {
             if (err) {
+                console.log('Paso 7');
                 return res.status(500).json({
                     title: 'An error occurred',
                     error: err

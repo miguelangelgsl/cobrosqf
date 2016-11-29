@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     template: `
         <h2>Steps </h2>
         <div class="row">
-            <app-steps-list [idProcess]="idProcess"></app-steps-list>
+            <app-steps-list [idProcess]="idProcess" class="col-md-6"></app-steps-list>
         </div>
         <hr>
         <div class="row">

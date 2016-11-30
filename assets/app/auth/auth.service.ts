@@ -6,10 +6,14 @@ import { Observable } from "rxjs";
 import { User } from "./user.model"; 
 import { ErrorService } from "../errors/error.service";
 
+import { configApp } from "../setup/config.App";
+
 @Injectable()
 export class AuthService {
     constructor(private http: Http, private errorService: ErrorService) {}
-    public url:string='http://localhost:3000/';
+
+    
+    public url:string=`http://${configApp.server}:${configApp.portHost}/`;
 
     signup(user: User) {
         const body = JSON.stringify(user);
@@ -53,6 +57,10 @@ export class AuthService {
             : '';
          
       return this.http.get(this.url+'user/expired'+ token).map(res => res.json());
+    }
+
+    appName(){
+        return configApp.appName;
     }
 
 

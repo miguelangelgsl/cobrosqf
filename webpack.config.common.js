@@ -26,7 +26,11 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: 'raw'
-            }
+            },
+            {
+                test: /\.less$/,
+                loader: 'style!css!less'
+            },
         ]
     },
 

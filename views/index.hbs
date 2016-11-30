@@ -2,7 +2,7 @@
 <html>
 <head>
     <base href="/">
-    <title>TeamWork</title>
+    <title>{{options.appName}}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Librerias Estilo-->
@@ -15,11 +15,22 @@
     <script src="/js/jquery-1.10.2.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     
+<!--
+<script type="text/javascript">
+    var options = { 
+        'server':  '{{{options.server}}}', 
+        'portHost':'{{{options.portHost}}}', 
+        'appName': '{{{options.appName}}}' 
+        };
 
+    localStorage.setItem('options', JSON.stringify(options));
+</script>
+-->
 </head>
 <body>
-    <my-app>
 
+
+    <my-app>
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="centering text-center text-primary" 
@@ -33,7 +44,7 @@
                         <div class="sk-cube2 sk-cube"></div>
                         <div class="sk-cube4 sk-cube"></div>
                         <div class="sk-cube3 sk-cube"></div>
-                        <h1  style="text-shadow: 2px 2px #dddddd; color:#34495e;">TeamWork</h1>
+                        <h1  style="text-shadow: 2px 2px #dddddd; color:#34495e;">{{options.appName}}</h1>
                         </div>
                   
                     

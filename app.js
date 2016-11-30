@@ -5,8 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var mongoose = require('./db/mongoose');
-  
+var mongoose = require('./setup/mongoose');
+
+
 
 /* Rotas de los diferentes conponentes */
 var appRoutes = require('./routes/app');
@@ -45,7 +46,10 @@ app.use('/', appRoutes);
 
 // Los errores 404 los maneja el FrontEnd
 app.use(function (req, res, next) {
-    return res.render('index');
+    res.render('index.hbs', {
+        options: configApp
+    }); 
+
 });
 
 

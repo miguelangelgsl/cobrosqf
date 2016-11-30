@@ -9,7 +9,7 @@
         </button>
         
             <a class="navbar-brand" routerLink="" routerLinkActive="active">
-                <i class="fa fa-users" aria-hidden="true"></i> TeamWork</a>
+                <i class="fa fa-users" aria-hidden="true"></i> {{appName}}</a>
 
             <!--<form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
@@ -37,9 +37,9 @@
             Users<span class="caret"></span>
                      </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-header">Signed in as <br><b>{{email}}</b></li>
+                     
                         <li><a [routerLink]="['/signup']">AddUser</a></li>
-                        <li class="divider"></li>
+                        <!--<li class="divider"></li>-->
                     </ul>
                 </li>
             </ul> 

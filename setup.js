@@ -1,8 +1,8 @@
 const yargs = require('yargs');
 
-const init = require('./db/initAdmin');
+const init = require('./setup/addUserRoot');
 
-//node setup.js --user "magsras@gmail.com" --pass "-----"
+//node setup --user "correo@dominio.com" --pass "secreto"
 
 const argv = yargs
   .options({
@@ -23,7 +23,7 @@ const argv = yargs
   .alias('help', 'h')
   .argv;
 
-init.initAdmin(argv.user,argv.pass, (errorMessage, results) => {
+init.addUserRoot(argv.user,argv.pass, (errorMessage, results) => {
 
   if (errorMessage) {
     console.log(errorMessage);

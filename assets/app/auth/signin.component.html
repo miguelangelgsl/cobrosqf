@@ -1,4 +1,5 @@
         <div class="middle-box">
+            
             <h2>
             <div *ngIf="isLoading" class="centering text-center text-primary" 
                         style="  min-height: 100%; 
@@ -17,7 +18,7 @@
                 </div>    
             </h2>
             <div *ngIf="!isLoading">
-                <h1>TeamWork</h1>
+                <h1>{{appName}}</h1>
                     <p>
                         {{header.content}}
                     </p>

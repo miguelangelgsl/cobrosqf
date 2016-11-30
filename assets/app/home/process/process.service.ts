@@ -5,12 +5,15 @@ import { Observable } from "rxjs";
 
 import { Process } from "./process.model";
 import { ErrorService } from "../../errors/error.service";
+import { configApp } from "../../setup/config.App";
 
 @Injectable() 
 export class ProcessService {
     private dataArray: Process[] = [];
     messageIsEdit = new EventEmitter<Process>();
-    public url:string='http://localhost:3000/process/';
+
+    public url:string=`http://${configApp.server}:${configApp.portHost}/process/`; 
+  
     
     constructor(private http: Http, private errorService: ErrorService) {
     }

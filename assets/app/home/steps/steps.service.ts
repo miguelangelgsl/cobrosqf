@@ -5,12 +5,13 @@ import { Observable } from "rxjs";
 
 import { Steps } from "./steps.model";
 import { ErrorService } from "../../errors/error.service";
+import { configApp } from "../../setup/config.App";
 
 @Injectable()
 export class StepsService {
     private dataArray: Steps[] = [];
     messageIsEdit = new EventEmitter<Steps>();
-    public url:string='http://localhost:3000/stepss/';
+    public url:string=`http://${configApp.server}:${configApp.portHost}/stepss/`; 
     
     constructor(private http: Http, private errorService: ErrorService) {
     }

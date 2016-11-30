@@ -32,6 +32,7 @@ import { AuthService } from "./auth.service";
 export class SigninComponent {
     myForm: FormGroup;
     isLoading=false;
+    appName:string;
 
     header={
             content: `Bienvenido a Agents inicie sesión con su correo y contraseña. `,
@@ -44,7 +45,9 @@ export class SigninComponent {
         submit:'Iniciar Sesión'
     };
 
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) {
+        this.appName= authService.appName();
+    }
 
     onSubmit() {
         this.isLoading=true;

@@ -11,10 +11,14 @@ export class NavBarComponent {
  isloading:boolean=false;
  name:string='';
  email:string='';
+ appName:string;
+ 
 constructor(private authService: AuthService, private router: Router) {
 
      this.name=localStorage.getItem('name');
-        this.email=localStorage.getItem('email');
+     this.email=localStorage.getItem('email');
+     this.appName= authService.appName();
+
 }
 
     onLogout() {

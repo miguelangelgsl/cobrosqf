@@ -14,17 +14,17 @@ import { User } from "../auth/user.model";
             position: absolute;
             top: 40%;
             left:50%;
+            font-size:14px;
             transform: translate(-50%,-50%);
             }
-        .middle-box h1 {
-            font-size: 80px;
+        .middle-box h2 {
+            font-size: 40px;
             font-family: 'Anton', sans-serif;
-            text-shadow: 2px 2px #787878;
-            color: rgba(55, 98, 142, 0.5);
+            color: rgba(55, 98, 142, 1);
         }
         @media screen and (max-width: 500px) {
-        .middle-box h1 {
-            font-size: 60px;
+        .middle-box h2 {
+            font-size: 30px;
         }
         }
         `
@@ -33,9 +33,11 @@ import { User } from "../auth/user.model";
 export class SignupComponent implements OnInit {
     myForm: FormGroup;
     isLoading=false;
+    admin_flag:boolean=false;
+   
 
     header={
-            content: `Crear acceso llenando los datos en el formulario.`,
+            content: `Crear un acceso llenando los datos en el formulario.`,
             signin:''
     };
 
@@ -45,6 +47,7 @@ export class SignupComponent implements OnInit {
         mail:'Correo',
         password:'Contraseña',
         submit:'Registrar',
+        admin:'Administrador'
     };
 
     constructor(private authService: AuthService) {}
@@ -55,14 +58,17 @@ export class SignupComponent implements OnInit {
             this.myForm.value.email,
             this.myForm.value.password,
             this.myForm.value.firstName,
-            this.myForm.value.lastName
+            this.myForm.value.lastName,
+            this.admin_flag
         );
+        console.log(user);
         this.authService.signup(user)
             .subscribe(
                 data => {console.log(data); this.isLoading=false;},
                 error => console.error(error)
             );
         this.myForm.reset();
+        this.admin_flag=false;
     }
 
     ngOnInit() {
@@ -76,4 +82,6 @@ export class SignupComponent implements OnInit {
             password: new FormControl(null, Validators.required)
         });
     }
+
+
 }

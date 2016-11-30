@@ -44,6 +44,19 @@
                     formControlName="password"
                     placeholder="{{formLabels.password}}">
         </div>
+        <div class="form-group">
+            <label style="margin-top:15px;"for="password">{{formLabels.admin}}</label><br>
+          
+            <i  class="fa"
+                [ngClass]="{'fa-toggle-on': admin_flag, 'fa-toggle-off': !admin_flag }" 
+                aria-hidden="true" 
+                role="button" 
+                style="font-size:40px;"
+                (click)="admin_flag = !admin_flag"></i>
+     
+          
+          
+        </div>
         <button
                 class="btn btn-primary"
                 type="submit"

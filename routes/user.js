@@ -11,7 +11,7 @@ router.post('/', function (req, res, next) {
         lastName: req.body.lastName,
         password: bcrypt.hashSync(req.body.password, 10),
         email: req.body.email,
-        admin: false
+        admin: req.body.admin
     });
     user.save(function(err, result) {
         if (err) {
@@ -67,14 +67,14 @@ router.post('/signin', function(req, res, next) {
         }
         if (!user) {
             return res.status(401).json({
-                title: 'Login failed',
-                error: {message: 'Invalid login credentials'}
+                title: 'Falló inicio de sesión',
+                error: {message: 'Debe proporcionar los datos completos'}
             });
         }
         if (!bcrypt.compareSync(req.body.password, user.password)) {
             return res.status(401).json({
-                title: 'Login failed',
-                error: {message: 'Invalid login credentials'}
+                title: 'Falló inicio de sesión',
+                error: {message: 'Usuario o contraseña son incorrecta'}
             });
         }
         var token = jwt.sign({user: user}, 'secret', {expiresIn: 36000});

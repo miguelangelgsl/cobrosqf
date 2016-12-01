@@ -1,4 +1,4 @@
-<div class="middle-box">
+<div class="col-md-8 col-md-offset-2">
     <h2>Agregar Usuario</h2>
     <h2><spinner [visible]="isLoading"></spinner></h2>
     <div *ngIf="!isLoading">
@@ -48,7 +48,7 @@
             <label style="margin-top:15px;"for="password">{{formLabels.admin}}</label><br>
           
             <i  class="fa"
-                [ngClass]="{'fa-toggle-on': admin_flag, 'fa-toggle-off': !admin_flag }" 
+                [ngClass]="{'fa-toggle-on text-primary': admin_flag, 'fa-toggle-off': !admin_flag }" 
                 aria-hidden="true" 
                 role="button" 
                 style="font-size:40px;"

@@ -17,13 +17,13 @@ import { User } from "../auth/user.model";
             font-size:14px;
             transform: translate(-50%,-50%);
             }
-        .middle-box h2 {
+        h2 {
             font-size: 40px;
             font-family: 'Anton', sans-serif;
             color: rgba(55, 98, 142, 1);
         }
         @media screen and (max-width: 500px) {
-        .middle-box h2 {
+        h2 {
             font-size: 30px;
         }
         }

@@ -5,9 +5,21 @@ var User = require('./user');
 
 var schema = new Schema({
     title: {type: String, required: true},
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
     created_at: Date,
     updated_at: Date,
+    caso: Number,
+    proceso: Number,
+    estado: String,
+    fecha_creacion: Date,
+    fecha_area: Date,
+    accion: Number,
+    estado_entidad: Number,
+    duracion: Date,
+    unidad: String,
+    servicio: String,
+    usuario: String,
+    tema:String,
+    user: {type: Schema.Types.ObjectId, ref: 'User'},
     steps: [{type: Schema.Types.ObjectId, ref: 'Steps'}]
 });
 
@@ -31,3 +43,5 @@ schema.pre('save', function(next) {
 
 
 module.exports = mongoose.model('Process', schema);
+
+//CASO	PROCESO	ESTADO	FECHA_CREACION	FECHA_AREA	ACCION	ESTADO_ENTIDAD	DURACION	UNIDAD	SERVICIO	USUARIO	TEMA
